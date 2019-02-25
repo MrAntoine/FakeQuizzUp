@@ -8,7 +8,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Home from "./Home.js";
 import About from "./About.js";
-
+import Login from "./login.js";
 
 class App extends Component {
     render() {
@@ -16,11 +16,12 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
+                        <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
                         <Route exact={true} path="/about" component={About} />
                         <Route path="*" component={() => <p>Page Not Found</p>} />
                     </Switch>
-                    Hey guys!!
+                 
                 </div>
             </BrowserRouter>
         );
