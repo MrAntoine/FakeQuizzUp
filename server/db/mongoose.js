@@ -16,19 +16,46 @@ const usersSchema = Schema({
   password: String
 });
 
-const QuestionSchema = new Schema({
- 
-  title: {
-      type: String,
+mongoose.Schema.Types.ObjectId
+// const QuestionSchema = Schema({
+//   question:String
+// })
+
+// const QuestionSchema = new Schema({
+  
+//   title: {
+//       type: String,
      
-  },
-  content: {
-      type: String,
+//   },
+//   questions:[q]
+//   content: {
+//       type: String,
      
-  },
-  image: {
-      type: String
-  },
+//   },
+//   image: {
+//       type: String
+//   },
+
+
+// },
+// { versionKey: false });
+
+
+const QuestionSchema = Schema({
+  question:String
+})
+
+const QuizzSchema = new Schema({
+  
+ name:String,
+ icon:String,
+ keywords:[String],
+  questions:[QuestionSchema],
+  published:Boolean,
+  owner:usersSchema,
+  scores:[Number]
+
+
 
 },
 { versionKey: false });
@@ -36,10 +63,16 @@ const QuestionSchema = new Schema({
 
 
 
+
+
+
+
 // exports
 const Users = mongoose.model('Users', usersSchema);
 const Question = mongoose.model('Questions', QuestionSchema);
+const Quizz = mongoose.model('Quizzes',QuizzSchema)
 
 module.exports = {};
 module.exports.users = Users;
 module.exports.questions = Question;
+module.exports.quizzSchema = Quizz;
