@@ -11,7 +11,7 @@ import Home from "./Home.js";
 import About from "./About.js";
 import Quizzpage from "./Quizzpage.js";
 import Login from "./login.js";
-
+import ScoreBoard from "./ScoreBoard.js"
 import Q404 from "./Q404.js";
 
 
@@ -78,13 +78,17 @@ class App extends Component {
                     <Nav display={this.display}/>
                     <Menu toggle={this.display} display={this.state.display}/>
                     <Switch>
+                        <Route exact={true} path="/Scoreboard" component={ScoreBoard} />
                         <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
                         <Route exact={true} path="/about" component={About} />
                         <Route exact={true} path="/quizz/:id" component={Quizzpage} />
                         <Route path="*" component={Q404} />
                     </Switch>
+<<<<<<< HEAD
+=======
 
+>>>>>>> cf65b2a4e06829c5cba5f2a88357ae98d2613813
 
                 </div>
             </BrowserRouter>

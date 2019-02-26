@@ -16,9 +16,30 @@ const usersSchema = Schema({
   password: String
 });
 
+const QuestionSchema = new Schema({
+ 
+  title: {
+      type: String,
+     
+  },
+  content: {
+      type: String,
+     
+  },
+  image: {
+      type: String
+  },
+
+},
+{ versionKey: false });
+
+
+
 
 // exports
 const Users = mongoose.model('Users', usersSchema);
+const Question = mongoose.model('Questions', QuestionSchema);
 
 module.exports = {};
 module.exports.users = Users;
+module.exports.questions = Question;
