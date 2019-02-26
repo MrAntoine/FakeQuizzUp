@@ -1,0 +1,117 @@
+/*V2*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #F2F2F2;
+    margin: 0;
+    /*scroll-behavior: smooth;
+  overflow-y: scroll;*/
+}
+
+a:link {
+    text-decoration:none;
+}
+
+
+
+
+/* MENU BAR */
+
+
+#MenuBar > nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+}
+
+.menuCase {
+    position: relative;
+    background-color: green;
+    width: 100%;
+    border: solid 1px grey;
+}
+
+.menuCase > img {
+    width: 5%;
+    height: auto;
+}
+
+
+
+/* SEARCH BAR */
+
+form.search_bar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.search_bar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.search_bar button:hover {
+    background: #0b7dda;
+}
+form.search_bar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* NAV BAR */
+
+#NavBar {
+    display: flex;
+    background-color: #88152e;
+}
+
+
+/* HEADER LOGO */
+
+.header-logo > img {
+    width:50px;
+}
+
+
+/* BURGER MENU  */
+
+
+.header-toogle-close {
+    display:none;
+}
+
+
+#NavBar:target .header-toogle-close{
+    display:inline;
+}
+
+#NavBar:target .header-toogle-open{
+    display:none;
+}
+
+#NavBar:target #MenuBar {
+    max-height: 1000px;
+}
