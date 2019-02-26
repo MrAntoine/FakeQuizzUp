@@ -24,7 +24,19 @@ class TxtAnswers extends Component {
         const t = this.props.question.txtAnswers.map(s => <div key={s}><input type="checkbox" value={s} name="test"/> {s}</div>);
         return (
             <div>
-                <input type="checkbox" value={"test"} name={"ee"} style={{width:"100px"}}/> Test
+                {t}
+            </div>
+        );
+    }
+}
+class ImgAnswers extends Component {
+
+
+    render() {
+        console.log(this.props.question);
+        const t = this.props.question.imgAnswers.map(s => <div key={s}><input type="checkbox" value={s} name="test"/><img src={HTTP_SERVER_PORT_PICTURES + s} /></div>);
+        return (
+            <div>
                 {t}
             </div>
         );
@@ -41,15 +53,33 @@ class Quizzpage extends Component {
     }
 
 
+    reponse(e)  {
+        e.preventDefault();
+        const question = this.quizz.questions[this.state.current];
+
+        this.setState({current : this.state.current + 1 });
+
+
+    }
+
     render() {
+        if(this.state.current == this.quizz.questions.length)
+            return (
+                <div>C fini</div>
+            );
+
         const question = this.quizz.questions[this.state.current];
         return (
             <div>
-                {this.quizz.name}
-                <input type="checkbox" value="test" />
-                <Question question = {question} />
-                <TxtAnswers question={question}/>
 
+                {this.quizz.name}
+
+                <Question question = {question} />
+                <form onSubmit={(e)=> this.reponse(e)}>
+                <TxtAnswers question={question}/>
+                <ImgAnswers question={question}/>
+                    <input type="submit" />
+                </form>
             </div>
         );
     }
