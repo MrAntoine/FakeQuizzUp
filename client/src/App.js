@@ -16,16 +16,18 @@ import Q404 from "./Q404.js";
 
 
 class Menu extends Component {
+
+
 	render() {
+	    if(this.props.display==0)
+	        return null;
 		return (
 			<div id="MenuBar">
                 <nav>
-
-                    <Link  className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "profil.svg"} alt="profil button"/> </Link>
-                    <Link  className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "scoreboard.svg"} alt="scoreboard button"/> </Link>
-                    <Link  className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "create_quiz.svg"} alt="create quiz button"/> </Link>
-                    <Link  className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "logout.svg"} alt="logout button"/> </Link>
-
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "profil.svg"} alt="profil button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "scoreboard.svg"} alt="scoreboard button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "create_quiz.svg"} alt="create quiz button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "logout.svg"} alt="logout button"/> </Link>
                 </nav>
             </div>
 		)
@@ -45,13 +47,11 @@ class Nav extends Component {
                     <button type="submit"><i className="fa fa-search"></i></button>
                 </form>
 
-                <div className="header-toogle">
+                <div className="header-toogle" onClick={(e) => this.props.display(e)}>
                     <Link className="header-toogle-open" to={'#NavBar'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_open.png"} width="30" alt="Open Menu"/></Link>
                     <Link className="header-toogle-close" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_close.png"} width="30" alt="Close Menu"/></Link>
                 </div>
 
-
-                <Menu/>
 
             </div>
         )
@@ -60,10 +60,23 @@ class Nav extends Component {
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {display: 0};
+        this.display = this.display.bind(this);
+    }
+
+    display(e) {
+        e.preventDefault();
+        this.setState({display : 1 - this.state.display});
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <div>
+                    <Nav display={this.display}/>
+                    <Menu toggle={this.display} display={this.state.display}/>
                     <Switch>
                         <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
@@ -71,7 +84,6 @@ class App extends Component {
                         <Route path="*" component={Q404} />
                     </Switch>
 
-					<Nav/>
 
                 </div>
             </BrowserRouter>
