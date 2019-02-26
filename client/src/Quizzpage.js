@@ -49,13 +49,34 @@ class Quizzpage extends Component {
         super(props);
 
         this.quizz = quizzes.filter(q=> q._id == this.props.match.params.id)[0];
-        this.state = {current : 0};
+        this.state = {current : 0, score : 0};
     }
 
 
     reponse(e)  {
         e.preventDefault();
         const question = this.quizz.questions[this.state.current];
+        let choices = [];
+        let verification = false;
+        for(let i = 0; i < e.target.elements.length; i++) {
+            if(e.target.elements[i].checked)
+                choices.push(i);
+        }
+        // choices == question.solutions
+            if(choices.length == question.solutions.length){
+                for(let i = 0; i<choices.length; i++){
+                    if(choices[i]===question.solutions[i]){
+                        verification = true;
+                    }
+                    else{
+                        verification = false;
+                    }
+                }
+            }
+            if(verification){
+                this.state.score = this.state.score + question.points;
+            }
+
 
         this.setState({current : this.state.current + 1 });
 
@@ -65,7 +86,7 @@ class Quizzpage extends Component {
     render() {
         if(this.state.current == this.quizz.questions.length)
             return (
-                <div>C fini</div>
+                <div>C fini {this.state.score}</div>
             );
 
         const question = this.quizz.questions[this.state.current];
