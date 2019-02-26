@@ -9,7 +9,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Home from "./Home.js";
 import About from "./About.js";
-
+import Quizzpage from "./Quizzpage.js";
 import Login from "./login.js";
 
 import Q404 from "./Q404.js";
@@ -43,6 +43,7 @@ class App extends Component {
                         <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
                         <Route exact={true} path="/about" component={About} />
+                        <Route exact={true} path="/quizz/:id" component={Quizzpage} />
                         <Route path="*" component={Q404} />
                     </Switch>
 

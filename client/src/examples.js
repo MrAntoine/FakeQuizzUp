@@ -5,6 +5,7 @@ let u1 = {
 }
 
 let q1 = {
+  _id : 1,
   name: 'quizz1',
   icon: 'quizz1/quizz1.jpg',
   keywords: ['kitchen', 'english'],
@@ -36,6 +37,7 @@ let q1 = {
 }
 
 let q2 = {
+  _id: 2,
   name: 'quizz2',
   icon: 'quizz2/aix.jpg',
   keywords: ['Aix', 'Tourisme'],
