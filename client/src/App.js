@@ -85,10 +85,6 @@ class App extends Component {
                         <Route exact={true} path="/quizz/:id" component={Quizzpage} />
                         <Route path="*" component={Q404} />
                     </Switch>
-<<<<<<< HEAD
-=======
-
->>>>>>> cf65b2a4e06829c5cba5f2a88357ae98d2613813
 
                 </div>
             </BrowserRouter>
