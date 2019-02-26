@@ -10,7 +10,7 @@ import Home from "./Home.js";
 import About from "./About.js";
 
 import Login from "./login.js";
-
+import ScoreBoard from "./ScoreBoard.js"
 import Q404 from "./Q404.js";
 
 
@@ -30,18 +30,13 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
+                        <Route exact={true} path="/Scoreboard" component={ScoreBoard} />
                         <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
                         <Route exact={true} path="/about" component={About} />
                         <Route path="*" component={Q404} />
                     </Switch>
-<<<<<<< HEAD
-                 
-=======
 
-					<Nav/>
-
->>>>>>> 906d5d75e978748094ec9b8095b7f9bfc26b4bed
                 </div>
             </BrowserRouter>
         );
