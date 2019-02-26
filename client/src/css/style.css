@@ -1,0 +1,47 @@
+/*V2*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #F2F2F2;
+    margin: 0;
+    /*scroll-behavior: smooth;
+  overflow-y: scroll;*/
+}
+
+a:link {
+    text-decoration:none;
+}
+
+
+
+#NavBar > nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    text-align: center;
+
+}
+
+.navCase {
+    background-color: green;
+    width: 100%;
+    height: 100px;
+
+}
+
+.navCase > img {
+    width: 100%;
+    height: auto;
+    margin-top: 25%;
+    transform: translateY(-50%);
+}

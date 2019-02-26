@@ -20,21 +20,12 @@ class Nav extends Component {
 		return (
 			<div id="NavBar">
                 <nav>
-                    <div className="navCase">
-                    <Link  to={'/profil'}>Profil</Link>
-                    </div>
 
-                    <div className="navCase">
-                        <Link  to={'/profil'}>Scoreboard</Link>
-                    </div>
+                    <Link  className="navCase" to={'/about'}><img src="/src/img/profil.svg" alt="profil button"/> </Link>
+                    <Link  className="navCase" to={'/about'}><img src="/img/scoreboard.svg" alt="scoreboard button"/> </Link>
+                    <Link  className="navCase" to={'/about'}><img src="img/create_quiz.svg" alt="create quiz button"/> </Link>
+                    <Link  className="navCase" to={'/about'}><img src="/src/img/logout.svg" alt="logout button"/> </Link>
 
-                    <div className="navCase">
-                        <Link  to={'/profil'}>Create a quizz</Link>
-                    </div>
-
-                    <div className="navCase">
-                        <Link  to={'/profil'}>About us</Link>
-                    </div>
 
 
                 </nav>
