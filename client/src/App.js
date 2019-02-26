@@ -20,7 +20,7 @@ class Menu extends Component {
 
 	render() {
 	    if(this.props.display==0)
-	        return null;
+	        return null
 		return (
 			<div id="MenuBar">
                 <nav>
@@ -48,10 +48,9 @@ class Nav extends Component {
                 </form>
 
                 <div className="header-toogle" onClick={(e) => this.props.display(e)}>
-                    <Link className="header-toogle-open" to={'#NavBar'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_open.png"} width="30" alt="Open Menu"/></Link>
-                    <Link className="header-toogle-close" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_close.png"} width="30" alt="Close Menu"/></Link>
+                    <Link id='open' className="header-toogle-open" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_open.png"} width="30" alt="Open Menu"/></Link>
+                    <Link id='close' className="header-toogle-close" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_close.png"} width="30" alt="Close Menu"/></Link>
                 </div>
-
 
             </div>
         )
@@ -68,6 +67,16 @@ class App extends Component {
 
     display(e) {
         e.preventDefault();
+        if (this.state.display == 1) {
+            console.log(1);
+           document.getElementById("close").style.display = 'none';
+            document.getElementById("open").style.display = 'inline-block';
+
+        }else {
+            document.getElementById("close").style.display = 'inline-block';
+            document.getElementById("open").style.display = 'none';
+            console.log(2);
+        }
         this.setState({display : 1 - this.state.display});
     }
 
