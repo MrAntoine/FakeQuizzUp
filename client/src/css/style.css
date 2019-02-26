@@ -27,9 +27,6 @@ a:link {
 
 /* MENU BAR */
 
-#MenuBar {
-    display: none;
-}
 
 #MenuBar > nav {
     display: grid;
@@ -106,11 +103,6 @@ form.search_bar::after {
     display:none;
 }
 
-#MenuBar {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1.6s ease;
-}
 
 #NavBar:target .header-toogle-close{
     display:inline;
