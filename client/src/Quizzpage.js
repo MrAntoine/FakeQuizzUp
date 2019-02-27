@@ -99,16 +99,15 @@ class Quizzpage extends Component {
     }
 
     render() {
-        if(this.state.current == this.quizz.questions.length)
+        if(this.state.current == this.quizz.questions.length) {
+            let c = null;
+
+            if (this.state.score == this.maxScore)
+                c = "<b>Youpi</b>";
             return (
-
-
-            <div>C fini {this.state.score} sur {this.maxScore} </div>
-
-
-
-        );
-
+                <div>C fini {this.state.score} sur {this.maxScore} {c}</div>
+            );
+        }
         const question = this.quizz.questions[this.state.current];
         return (
             <div id={"Quizzpage"}>
