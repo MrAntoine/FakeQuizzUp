@@ -60,6 +60,9 @@ a:link {
 
 
 /* SEARCH BAR */
+.search_bar {
+    margin:auto;
+}
 
 form.search_bar input[type=text] {
     padding: 10px;
@@ -83,7 +86,7 @@ form.search_bar button {
 }
 
 form.search_bar button:hover {
-    background: #0b7dda;
+    background: #ffffff75;
 }
 form.search_bar::after {
     content: "";
@@ -96,19 +99,25 @@ form.search_bar::after {
 #NavBar {
     display: flex;
     background-color: #88152e;
+    height: 10vh;
 }
 
 
 /* HEADER LOGO */
 
+.header-logo {
+    margin: auto;
+}
+
 .header-logo > img {
-    width:50px;
+    max-height: 10vh;
 }
 
 
 /* BURGER MENU  */
 .header-toogle {
-    margin:auto;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 
 .header-toogle-close {
@@ -159,14 +168,21 @@ form.search_bar::after {
 
 
 .quizItem span {
-    color: #cc1237;
-    padding: 25px;
-
     position: absolute;
-    z-index: 2;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    text-align: center;
+    background: rgba(253, 255, 252, 0.6);
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    /*opacity: 0;*/
+    transition: opacity 400ms ease-out;
+}
+
+
+
+.quizItem span h1 {
+    color:red;
 }
 
 

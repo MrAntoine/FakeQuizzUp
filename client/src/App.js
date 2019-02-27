@@ -67,7 +67,7 @@ class App extends Component {
     }
 
     display(e) {
-        e.preventDefault();
+       // e.preventDefault();
         if (this.state.display == 1) {
             console.log(1);
            document.getElementById("close").style.display = 'none';
