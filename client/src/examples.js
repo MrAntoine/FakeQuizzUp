@@ -6,8 +6,8 @@ let u1 = {
 
 let q1 = {
   _id : 1,
-  name: 'quizz1',
-  icon: 'quizz1/quizz1.jpg',
+  name: 'Movies',
+  icon: 'quizz1/movies.png',
   keywords: ['kitchen', 'english'],
   questions: [{
     question: 'where is brian?',
@@ -38,8 +38,8 @@ let q1 = {
 
 let q2 = {
   _id: 2,
-  name: 'quizz2',
-  icon: 'quizz2/aix.jpg',
+  name: 'Light Painting',
+  icon: 'quizz2/light_painting.jpg',
   keywords: ['Aix', 'Tourisme'],
   questions: [{
     question: 'where is Aix en Provence?',

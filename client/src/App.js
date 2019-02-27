@@ -25,10 +25,10 @@ class Menu extends Component {
 		return (
 			<div id="MenuBar">
                 <nav>
-                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "profil.svg"} alt="profil button"/> </Link>
-                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "scoreboard.svg"} alt="scoreboard button"/> </Link>
-                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "create_quiz.svg"} alt="create quiz button"/> </Link>
-                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "logout.svg"} alt="logout button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/profil'}><img src={HTTP_SERVER_PORT_PICTURES + "profil.svg"} alt="profil button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/scoreboard'}><img src={HTTP_SERVER_PORT_PICTURES + "scoreboard.svg"} alt="scoreboard button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/newQuizz'}><img src={HTTP_SERVER_PORT_PICTURES + "create_quiz.svg"} alt="create quiz button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/logout'}><img src={HTTP_SERVER_PORT_PICTURES + "logout.svg"} alt="logout button"/> </Link>
                 </nav>
             </div>
 		)
@@ -40,13 +40,14 @@ class Nav extends Component {
         return (
             <div id="NavBar">
 
-                <Link  className="header-logo" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "logo.png"} alt="Q'Art's logo"/> </Link>
 
+                    <Link className="header-logo" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "logo.png"}
+                                                                alt="Q'Art's logo"/> </Link>
+                    <form className="search_bar" action="#">
+                        <input type="text" placeholder="Search..." name="search2"/>
+                        <button type="submit"><i className="fa fa-search"></i></button>
+                    </form>
 
-                <form className="search_bar" action="#">
-                    <input type="text" placeholder="Search..." name="search2"/>
-                    <button type="submit"><i className="fa fa-search"></i></button>
-                </form>
 
                 <div className="header-toogle" onClick={(e) => this.props.display(e)}>
                     <Link id='open' className="header-toogle-open" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "menu_open.png"} width="30" alt="Open Menu"/></Link>
@@ -67,7 +68,7 @@ class App extends Component {
     }
 
     display(e) {
-        e.preventDefault();
+       // e.preventDefault();
         if (this.state.display == 1) {
             console.log(1);
            document.getElementById("close").style.display = 'none';
