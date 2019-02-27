@@ -28,7 +28,7 @@ class CreatingQuizz extends Component {
         return(
             <div>
 
-                    <form onSubmit={(e)=>this.createquizz(e)}>
+                    <form onSubmit={(e)=>this.createquizz(e)} class="createquizzform">
                             <input type="text" placeholder="Quizz name" id="name"/>
                             <input type="text" placeholder="Categories" id="categorie"/>
 
