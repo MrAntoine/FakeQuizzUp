@@ -1,19 +1,29 @@
 #Quizzpage{
     background-color: #b9c3c9;
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 #Quizzpage h4{
     padding-top:5px;
     margin-left: 10px;
     padding-bottom: 5px;
 }
-#Quizzpage #icon {
-    width: 150px;
-}
+
 #Quizzpage #img{
-    display:flex;
-    justify-content: center;
+    height: 50vh;
+    text-align: center;
 }
+
+#Quizzpage #icon {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 #Quizzpage #question{
     display: flex;
     justify-content: center;
@@ -23,9 +33,10 @@
     border: 2px solid #88152e;
     border-radius: 7px;
     background-color: #FFF;
+    padding:10px;
 }
 
-#Quizzpage #grid-text{
+#Quizzpage .grid-text{
     margin-left:10px;
     margin-right: 10px;
     display: grid;
@@ -45,4 +56,34 @@ display:flex;
     margin-top: 10px;
     margin-right: 10px;
     border-radius: 10px;
+}
+
+
+#responseForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+}
+
+
+.grid-img {
+    display: flex;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 25vh;
+    text-align: center;
+}
+
+.grid-img img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.grid-img div {
+    width: 100%;
+    height: auto;
 }

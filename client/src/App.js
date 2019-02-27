@@ -71,14 +71,12 @@ class App extends Component {
     display(e) {
        // e.preventDefault();
         if (this.state.display == 1) {
-            console.log(1);
            document.getElementById("close").style.display = 'none';
             document.getElementById("open").style.display = 'inline-block';
 
         }else {
             document.getElementById("close").style.display = 'inline-block';
             document.getElementById("open").style.display = 'none';
-            console.log(2);
         }
         this.setState({display : 1 - this.state.display});
     }

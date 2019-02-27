@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import {quizzes, users} from './examples';
 import {HTTP_SERVER_PORT_PICTURES} from './constants.js';
+import axios from "axios";
 
 class Thumbnails extends Component {
     render (){

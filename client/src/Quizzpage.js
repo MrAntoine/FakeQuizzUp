@@ -24,7 +24,7 @@ class TxtAnswers extends Component {
         console.log(this.props.question);
         const t = this.props.question.txtAnswers.map(s => <div key={s} id={"txtanswers"}><input type="checkbox" value={s} name="test"/> {s}</div>);
         return (
-            <div id="grid-text">
+            <div className="grid-text">
                 {t}
             </div>
         );
@@ -37,7 +37,7 @@ class ImgAnswers extends Component {
         console.log(this.props.question);
         const t = this.props.question.imgAnswers.map(s => <div key={s}><input type="checkbox" value={s} name="test"/><img src={HTTP_SERVER_PORT_PICTURES + s} /></div>);
         return (
-            <div>
+            <div className="grid-img">
                 {t}
             </div>
         );
@@ -121,7 +121,7 @@ class Quizzpage extends Component {
                 <Question question = {question} />
                 </div>
                 <br/>
-                <form onSubmit={(e)=> this.reponse(e)}>
+                <form id="responseForm" onSubmit={(e)=> this.reponse(e)}>
                 <TxtAnswers question={question} />
                 <ImgAnswers question={question}/>
 

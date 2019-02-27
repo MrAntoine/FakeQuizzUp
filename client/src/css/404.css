@@ -2,6 +2,11 @@
     margin-top: 10vh;
     text-align: center;
     height: 50vh;
+    /*background-image: url({HTTP_SERVER_PORT_PICTURES + "404.png"});*/
+    background-image: url("../img/404.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #msg_404 {
@@ -15,6 +20,7 @@
     padding: 15px;
     border: 1.5px solid #88152e;
     border-radius: 5px;
+    background: #ffffff72;
     color: #88152e;
     margin-top: 5vh;
     margin-bottom: 5vh;

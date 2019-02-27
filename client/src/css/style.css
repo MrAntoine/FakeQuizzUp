@@ -1,4 +1,5 @@
 /*V2*/
+@import 'scoreboard.css';
 @import '404.css';
 @import 'style2.css';
 
@@ -72,7 +73,7 @@ form.search_bar input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 80%;
+    width: 70%;
     background: #ffffff;
 }
 
@@ -108,9 +109,6 @@ form.search_bar::after {
 
 /* HEADER LOGO */
 
-.header-logo {
-    margin: auto;
-}
 
 .header-logo > img {
     max-height: 10vh;
@@ -185,9 +183,13 @@ form.search_bar::after {
 
 
 .quizItem span h1 {
-    color:red;
+    color: #88152e;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    font-size: 20pt;
 }
-
 
 
 .quizPicture {
@@ -200,4 +202,14 @@ form.search_bar::after {
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
+}
+
+
+.quizItem:hover span {
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
+
+.quizItem:hover span h1 {
+    color:yellow;
 }

@@ -20,9 +20,9 @@ class ScoreBoard extends  Component{
             <div className="col s12 m6">
                 <div className="card">
                     <div className="card-content">
-                        <p>{this.state.user}</p>
-                        <p>{this.state.points}</p>
-                        <p>{this.state.passed_quizzes}</p>
+                        <span>My Name : {this.state.user}</span>
+                        <span>My Points : {this.state.points}</span>
+                        <span>My quizz passed : {this.state.passed_quizzes}</span>
                     </div>
                 </div>
             </div>
