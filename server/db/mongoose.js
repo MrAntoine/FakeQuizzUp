@@ -50,15 +50,40 @@ const QuizzSchema = new Schema({
  name:String,
  icon:String,
  keywords:[String],
-  questions:[QuestionSchema],
-  published:Boolean,
-  owner:usersSchema,
-  scores:[Number]
+  questions:[
+    {
+     question:String, 
+     image:String,
+     answer1:String,
+     answer2:String,
+     answer3:String,
+     answer4:String,
+     score:Number,
+    },
 
+    
+  ],
+  published:Boolean,
+  
 
 
 },
 { versionKey: false });
+
+
+/*
+  
+ name:String,
+ icon:String,
+ keywords:String,
+  question:String,
+  answer1:String,
+  answer2:String,
+  answer3:String,
+  answer4:String,
+  published:Boolean,
+  
+  scores:Number*/
 
 
 

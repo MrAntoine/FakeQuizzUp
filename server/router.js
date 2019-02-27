@@ -45,7 +45,17 @@ router
             else
               res.json(data);
           })
-  })
+  }).
+get("/quizz/:id", (req, res) => {
+    Quizzes.questions.findOne({
+        _id: req.params.id
+    }).exec((err, data) => {
+        if (err) return res.status(500).send(err);
+        else res.json(data);
+    });
+  })  
+
+  
   
   .post("/newquestion", (req, res) => {
     const q = new Question(req.body);    // The json object is the body of the request
