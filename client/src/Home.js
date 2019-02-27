@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {quizzes, users} from './examples';
 import {HTTP_SERVER_PORT_PICTURES} from './constants.js';
-
+import {Link} from 'react-router-dom';
 class Thumbnails extends Component {
     render (){
         const divStyle = {
@@ -13,12 +13,15 @@ class Thumbnails extends Component {
 
         return (
 
+            <Link to={"/quizz/"+this.props.quizz._id}>
             <div className="quizItem" style={divStyle}>
                 <span>
                     <h1 className='quizName'>{this.props.quizz.name}</h1>
                 </span>
                 <img className='quizPicture' src={HTTP_SERVER_PORT_PICTURES + this.props.quizz.icon}/>
             </div>
+            </Link>
+
 
         )
     }

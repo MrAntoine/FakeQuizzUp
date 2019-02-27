@@ -4,6 +4,7 @@ import {quizzes, users} from './examples';
 import {HTTP_SERVER_PORT_PICTURES} from './constants.js';
 import {HTTP_SERVER_PORT} from './constants.js';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 class Question extends Component {
 
 
@@ -103,9 +104,17 @@ class Quizzpage extends Component {
             let c = null;
 
             if (this.state.score == this.maxScore)
-                c = "<b>Youpi</b>";
+                c = "Youpi";
+
+            else if(this.state.score<this.maxScore/2)
+                c = "Peut mieux faire";
+
             return (
-                <div>C fini {this.state.score} sur {this.maxScore} {c}</div>
+                <div>C fini {this.state.score} sur {this.maxScore} {c}
+                    <Link to={"/"}>
+                    <button>Home</button>
+                    </Link>
+                </div>
             );
         }
         const question = this.quizz.questions[this.state.current];
