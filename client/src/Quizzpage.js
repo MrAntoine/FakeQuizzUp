@@ -50,15 +50,19 @@ class Quizzpage extends Component {
         super(props);
 
         this.quizz = quizzes.filter(q=> q._id == this.props.match.params.id)[0];
-        //this.state = {current : 0, score : 0};
-      
+
+        this.maxScore = this.quizz.questions.map(q=>q.points).reduce((acc,current)=>acc+current);
+        const miScore = this.maxScore/2;
+        console.log("maxScore=",this.maxScore);
+        console.log(miScore)
+        this.state = {current : 0, score : 0};
     }
 
     async loadData() {
         const quizzes = (await axios.get(HTTP_SERVER_PORT + 'quizz')).data;  // We need to wait for the response.
         this.setState({quizzes: quizzes});
       }
-      
+
       componentDidMount(){
           this.loadData()
       }
@@ -93,32 +97,37 @@ class Quizzpage extends Component {
 
 
     }
-    // nextQuestion(){
-    //     this.setState({current:this.state.current+1})
-    // }
 
     render() {
         if(this.state.current == this.quizz.questions.length)
             return (
-                <div>C fini {this.state.score}</div>
-            );
+
+
+            <div>C fini {this.state.score} sur {this.maxScore} </div>
+
+
+
+        );
 
         const question = this.quizz.questions[this.state.current];
         return (
             <div id={"Quizzpage"}>
 
                 <h4>{this.quizz.name}</h4>
+                <div id="img">
+                <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
+                </div>
                     <br/>
-
+                <div id="question">
                 <Question question = {question} />
+                </div>
                 <br/>
                 <form onSubmit={(e)=> this.reponse(e)}>
                 <TxtAnswers question={question} />
                 <ImgAnswers question={question}/>
-                    <br/>
+
                     <div id="submit">
                     <input id="button" type="submit"/>
-                    {/* <button onClick={()=>nextQuestion()}>next</button> */}
                     </div>
                 </form>
             </div>

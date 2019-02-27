@@ -45,31 +45,39 @@ const QuestionSchema = Schema({
   question:String
 })
 
+// const QuizzSchema = new Schema({
+//
+//  name:String,
+//  icon:String,
+//  keywords:[String],
+//   questions:[
+//     {
+//      question:String,
+//      image:String,
+//      answer1:String,
+//      answer2:String,
+//      answer3:String,
+//      answer4:String,
+//      score:Number,
+//     },
+//
+//
+//   ],
+//   published:Boolean,
+//
+//
+//
+// },
+// { versionKey: false });
+
 const QuizzSchema = new Schema({
-  
- name:String,
- icon:String,
- keywords:[String],
-  questions:[
-    {
-     question:String, 
-     image:String,
-     answer1:String,
-     answer2:String,
-     answer3:String,
-     answer4:String,
-     score:Number,
+        name:String,
+        icon:String,
+        keywords:[String],
+        questions:[],
+        //published:Boolean
     },
-
-    
-  ],
-  published:Boolean,
-  
-
-
-},
-{ versionKey: false });
-
+    { versionKey: false });
 
 /*
   
