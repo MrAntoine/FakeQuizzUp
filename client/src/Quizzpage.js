@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 import {quizzes, users} from './examples';
 import {HTTP_SERVER_PORT_PICTURES} from './constants.js';
-
+import {HTTP_SERVER_PORT} from './constants.js';
+import axios from 'axios';
 class Question extends Component {
 
 
@@ -49,9 +50,18 @@ class Quizzpage extends Component {
         super(props);
 
         this.quizz = quizzes.filter(q=> q._id == this.props.match.params.id)[0];
-        this.state = {current : 0, score : 0};
+        //this.state = {current : 0, score : 0};
+      
     }
 
+    async loadData() {
+        const quizzes = (await axios.get(HTTP_SERVER_PORT + 'quizz')).data;  // We need to wait for the response.
+        this.setState({quizzes: quizzes});
+      }
+      
+      componentDidMount(){
+          this.loadData()
+      }
 
     reponse(e)  {
         e.preventDefault();
@@ -83,6 +93,9 @@ class Quizzpage extends Component {
 
 
     }
+    // nextQuestion(){
+    //     this.setState({current:this.state.current+1})
+    // }
 
     render() {
         if(this.state.current == this.quizz.questions.length)
@@ -105,6 +118,7 @@ class Quizzpage extends Component {
                     <br/>
                     <div id="submit">
                     <input id="button" type="submit"/>
+                    {/* <button onClick={()=>nextQuestion()}>next</button> */}
                     </div>
                 </form>
             </div>

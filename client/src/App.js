@@ -13,6 +13,7 @@ import Quizzpage from "./Quizzpage.js";
 import Login from "./login.js";
 import ScoreBoard from "./ScoreBoard.js"
 import Q404 from "./Q404.js";
+import axios from 'axios';
 
 
 class Menu extends Component {
@@ -79,6 +80,16 @@ class App extends Component {
         }
         this.setState({display : 1 - this.state.display});
     }
+
+    componentDidMount(){
+        axios.get('http://localhost:8081/')
+          .then(response => {
+            this.setState({ business: response.data });
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
 
     render() {
         return (
