@@ -21,9 +21,9 @@ class TxtAnswers extends Component {
 
     render() {
         console.log(this.props.question);
-        const t = this.props.question.txtAnswers.map(s => <div key={s}><input type="checkbox" value={s} name="test"/> {s}</div>);
+        const t = this.props.question.txtAnswers.map(s => <div key={s} id={"txtanswers"}><input type="checkbox" value={s} name="test"/> {s}</div>);
         return (
-            <div>
+            <div id="grid-text">
                 {t}
             </div>
         );
@@ -64,18 +64,19 @@ class Quizzpage extends Component {
         }
         // choices == question.solutions
             if(choices.length == question.solutions.length){
-                for(let i = 0; i<choices.length; i++){
-                    if(choices[i]===question.solutions[i]){
-                        verification = true;
-                    }
-                    else{
-                        verification = false;
+                let ok=true;
+                for(let i = 0; ok && i<choices.length; i++){
+                    if(choices[i]!==question.solutions[i]){
+                        ok=false;
                     }
                 }
+                if(ok){
+                    this.state.score = this.state.score + question.points;
+                }
             }
-            if(verification){
-                this.state.score = this.state.score + question.points;
-            }
+
+
+
 
 
         this.setState({current : this.state.current + 1 });
@@ -91,15 +92,20 @@ class Quizzpage extends Component {
 
         const question = this.quizz.questions[this.state.current];
         return (
-            <div>
+            <div id={"Quizzpage"}>
 
-                {this.quizz.name}
+                <h4>{this.quizz.name}</h4>
+                    <br/>
 
                 <Question question = {question} />
+                <br/>
                 <form onSubmit={(e)=> this.reponse(e)}>
-                <TxtAnswers question={question}/>
+                <TxtAnswers question={question} />
                 <ImgAnswers question={question}/>
-                    <input type="submit" />
+                    <br/>
+                    <div id="submit">
+                    <input id="button" type="submit"/>
+                    </div>
                 </form>
             </div>
         );

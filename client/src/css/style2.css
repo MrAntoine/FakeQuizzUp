@@ -1,0 +1,28 @@
+#Quizzpage{
+    background-color: #b9c3c9;
+
+}
+
+
+#Quizzpage form #txtanswers{
+    display:block;
+    border: 2px solid #88152e;
+}
+
+#Quizzpage #grid-text{
+    margin-left:10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+#Quizzpage #submit{
+display:flex;
+    justify-content: center;
+
+}
+#Quizzpage #submit #button{
+    background-color: #88152e;
+}
