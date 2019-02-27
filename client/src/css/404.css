@@ -1,0 +1,31 @@
+#p404 {
+    margin-top: 10vh;
+    text-align: center;
+    height: 50vh;
+}
+
+#msg_404 {
+    font-size: 16pt;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    padding:10px;
+}
+
+#Home_btn {
+    padding: 15px;
+    border: 1.5px solid #88152e;
+    border-radius: 5px;
+    color: #88152e;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#Home_btn:hover {
+    color: #ffffff;
+    background-color: #88152e;
+}
+
+#T404 {
+    font-size: 24pt;
+    font-weight: bold;
+}

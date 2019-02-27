@@ -41,7 +41,7 @@ class Nav extends Component {
             <div id="NavBar">
 
 
-                    <Link className="header-logo" to={'#'}><img src={HTTP_SERVER_PORT_PICTURES + "logo.png"}
+                    <Link className="header-logo" to={'/'}><img src={HTTP_SERVER_PORT_PICTURES + "logo.png"}
                                                                 alt="Q'Art's logo"/> </Link>
                     <form className="search_bar" action="#">
                         <input type="text" placeholder="Search..." name="search2"/>
