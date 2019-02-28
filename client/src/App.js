@@ -29,7 +29,7 @@ class Menu extends Component {
                     <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/profil'}><img src={HTTP_SERVER_PORT_PICTURES + "profil.svg"} alt="profil button"/> </Link>
                     <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/scoreboard'}><img src={HTTP_SERVER_PORT_PICTURES + "scoreboard.svg"} alt="scoreboard button"/> </Link>
                     <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/createquizz'}><img src={HTTP_SERVER_PORT_PICTURES + "create_quiz.svg"} alt="create quiz button"/> </Link>
-                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/logout'}><img src={HTTP_SERVER_PORT_PICTURES + "logout.svg"} alt="logout button"/> </Link>
+                    <Link  onClick={(e) => this.props.toggle(e)} className="menuCase" to={'/about'}><img src={HTTP_SERVER_PORT_PICTURES + "about.svg"} alt="about button"/> </Link>
                 </nav>
             </div>
 		)
