@@ -1,0 +1,38 @@
+.createquizzform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto ;
+    text-align: center;
+}
+
+.createquizzform > * {
+    text-align: center;
+    margin: auto;
+}
+
+.createquizzform input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    background: #ffffff;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.createquizzform input[type=submit] {
+    width: 40%;
+    padding: 10px;
+    background: #ffffff;
+    color: #88152e;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+.createquizzform input[type=submit]:hover {
+    background: #ffffff75;
+}

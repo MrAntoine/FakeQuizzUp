@@ -62,11 +62,11 @@ class Quizzpage extends Component {
     async loadData() {
         const quizzes = (await axios.get(HTTP_SERVER_PORT + 'quizz')).data;  // We need to wait for the response.
         this.setState({quizzes: quizzes});
-      }
+    }
 
-      componentDidMount(){
-          this.loadData()
-      }
+    componentDidMount(){
+        this.loadData()
+    }
 
     reponse(e)  {
         e.preventDefault();
@@ -78,17 +78,17 @@ class Quizzpage extends Component {
                 choices.push(i);
         }
         // choices == question.solutions
-            if(choices.length == question.solutions.length){
-                let ok=true;
-                for(let i = 0; ok && i<choices.length; i++){
-                    if(choices[i]!==question.solutions[i]){
-                        ok=false;
-                    }
-                }
-                if(ok){
-                    this.state.score = this.state.score + question.points;
+        if(choices.length == question.solutions.length){
+            let ok=true;
+            for(let i = 0; ok && i<choices.length; i++){
+                if(choices[i]!==question.solutions[i]){
+                    ok=false;
                 }
             }
+            if(ok){
+                this.state.score = this.state.score + question.points;
+            }
+        }
 
 
 
@@ -111,9 +111,7 @@ class Quizzpage extends Component {
 
             return (
                 <div>C fini {this.state.score} sur {this.maxScore} {c}
-                    <Link to={"/"}>
-                    <button>Home</button>
-                    </Link>
+                    <Link id="Home_btn" to={'/'}>Go Home</Link>
                 </div>
             );
         }
@@ -123,20 +121,19 @@ class Quizzpage extends Component {
 
                 <h4>{this.quizz.name}</h4>
                 <div id="img">
-                <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
+                    <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
                 </div>
-                    <br/>
+                <br/>
                 <div id="question">
-                <Question question = {question} />
+                    <Question question = {question} />
                 </div>
                 <br/>
                 <form id="responseForm" onSubmit={(e)=> this.reponse(e)}>
-                <TxtAnswers question={question} />
-                <ImgAnswers question={question}/>
+                    <TxtAnswers question={question} />
+                    <ImgAnswers question={question}/>
 
-                    <div id="submit">
                     <input id="button" type="submit"/>
-                    </div>
+
                 </form>
             </div>
         );

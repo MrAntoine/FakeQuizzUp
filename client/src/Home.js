@@ -14,13 +14,11 @@ class Thumbnails extends Component {
         };
 
         return (
-            <Link  to={'/quizz/' + this.props.quizz._id}>
-            <div className="quizItem" style={divStyle}>
+            <Link className="quizItem" style={divStyle} to={'/quizz/' + this.props.quizz._id}>
                 <span>
                     <h1 className='quizName'>{this.props.quizz.name}</h1>
                 </span>
                 <img className='quizPicture' src={HTTP_SERVER_PORT_PICTURES + this.props.quizz.icon}/>
-            </div>
             </Link>
         )
     }

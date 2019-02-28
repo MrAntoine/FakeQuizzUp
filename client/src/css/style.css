@@ -1,11 +1,13 @@
 /*V2*/
-@import 'scoreboard.css';
-@import '404.css';
+@import '../css2/createquizz.css';
+@import '../css2/scoreboard.css';
+@import '../css2/404.css';
 @import 'style2.css';
 
 html {
     scroll-behavior: smooth;
 }
+
 
 *{
     margin: 0;
@@ -204,7 +206,7 @@ form.search_bar::after {
     text-align: center;
 }
 
-
+/*
 .quizItem:hover span {
     transition: all 200ms ease-in;
     transform: scale(1.5);
@@ -213,3 +215,4 @@ form.search_bar::after {
 .quizItem:hover span h1 {
     color:yellow;
 }
+*/

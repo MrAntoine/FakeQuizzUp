@@ -15,6 +15,8 @@
 #Quizzpage #img{
     height: 50vh;
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #Quizzpage #icon {
@@ -45,18 +47,6 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
-#Quizzpage #submit{
-display:flex;
-    justify-content: flex-end;
-
-}
-#Quizzpage #submit #button{
-    background-color: #88152e;
-    padding:5px;
-    margin-top: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-}
 
 
 #responseForm {
@@ -85,4 +75,19 @@ display:flex;
 .grid-img div {
     width: 100%;
     height: auto;
+}
+
+
+
+#responseForm input[type=submit] {
+    width: 100%;
+    padding: 10px;
+    background-color: #88152e;
+    color: #ffffff;
+    font-size: 17px;
+    border: 1px solid #ffffff;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 7px;
+    /*margin: auto;*/
 }
