@@ -10,6 +10,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Home from "./Home.js";
 import About from "./About.js";
 import Quizzpage from "./Quizzpage.js";
+import Quizzpageb from "./Quizzpageb.js";
 import Login from "./login.js";
 import ScoreBoard from "./ScoreBoard.js"
 import Q404 from "./Q404.js";
@@ -102,7 +103,7 @@ class App extends Component {
                         <Route exact={true} path="/Login" component={Login} />
                         <Route exact={true} path="/" component={Home} />
                         <Route exact={true} path="/about" component={About} />
-                        <Route exact={true} path="/quizz/:id" component={Quizzpage} />
+                        <Route exact={true} path="/quizz/:id" component={Quizzpageb} />
                         <Route exact={true} path="/createquizz" component={CreatingQuizz} />
                         <Route path="*" component={Q404} />
                     </Switch>

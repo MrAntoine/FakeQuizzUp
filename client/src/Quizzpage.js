@@ -99,7 +99,6 @@ class Quizzpage extends Component {
 
     reponse(e) {
         if (e != null) {
-      ;
             e.preventDefault();
             const question = this.quizz.questions[this.state.current];
             let choices = [];

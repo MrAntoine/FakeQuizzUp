@@ -38,6 +38,7 @@ router
           })
   })
   .get('/quizz', (req, res) => {
+      console.log("ee",req);
     Quizzes.find()
           .exec((err, data) => {
             if (err)
@@ -47,7 +48,8 @@ router
           })
   }).
 get("/quizz/:id", (req, res) => {
-    Quizzes.questions.findOne({
+    console.log("sid", req.params.id);
+    Quizzes.findOne({
         _id: req.params.id
     }).exec((err, data) => {
         if (err) return res.status(500).send(err);
