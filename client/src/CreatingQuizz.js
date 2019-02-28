@@ -11,14 +11,26 @@ class CreatingQuizz extends Component {
            quizz:null
        }
     }
-    createquizz(e){
+
+    addingsolution(e){
+        let solution=[]
+        for(let i = 0; i < e.target.elements.length; i++) {
+            if(e.target.elements[i].checked)
+                solution.push(i);
+        }
+
+    }
+    createquizz(e,t){
         e.preventDefault()
         this.setState({
             quizz:{
                 name:document.getElementById('name').value,
                 keywords:document.getElementById('categorie').value,
                 questions:{
-                    question:document.getElementById('question').value
+                    question:document.getElementById('question').value,
+                    txtAnswers:[document.getElementById('answers1').value,document.getElementById('answers2').value,document.getElementById('answers3').value,document.getElementById('answers4').value],
+                    solutions:this.addingsolution(e),
+                    score: document.getElementById('score'),
                 }
             }
         })
@@ -33,10 +45,11 @@ class CreatingQuizz extends Component {
                             <input type="text" placeholder="Categories" id="categorie"/>
 
                             <input type="text" placeholder="Question" id="question"/>
-                            <input type="text" placeholder="Answers" id="answers1"/>
-                            <input type="text" placeholder="Answers" id="answers2"/>
-                            <input type="text" placeholder="Answers" id="answers3"/>
-                            <input type="text" placeholder="Answers" id="answers4"/>
+                            <input type="text" placeholder="Answers" id="answers1"/><input type="checkbox" value="0"/>
+                            <input type="text" placeholder="Answers" id="answers2"/><input type="checkbox" value="1"/>
+                            <input type="text" placeholder="Answers" id="answers3"/><input type="checkbox" value="2"/>
+                            <input type="text" placeholder="Answers" id="answers4"/><input type="checkbox" value="3"/>
+                        <input type="text" placeholder="Score" id="score"/>
 <br/>
                             <input id="button" type="submit"/>
                 </form>
