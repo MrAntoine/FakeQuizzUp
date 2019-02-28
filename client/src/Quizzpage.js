@@ -5,6 +5,9 @@ import {HTTP_SERVER_PORT_PICTURES} from './constants.js';
 import {HTTP_SERVER_PORT} from './constants.js';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+
+import Timer from "./Timer.js";
+
 class Question extends Component {
 
 
@@ -45,6 +48,8 @@ class ImgAnswers extends Component {
     }
 }
 
+
+
 class Quizzpage extends Component {
 
     constructor(props) {
@@ -53,10 +58,29 @@ class Quizzpage extends Component {
         this.quizz = quizzes.filter(q=> q._id == this.props.match.params.id)[0];
 
         this.maxScore = this.quizz.questions.map(q=>q.points).reduce((acc,current)=>acc+current);
-        const miScore = this.maxScore/2;
-        console.log("maxScore=",this.maxScore);
-        console.log(miScore)
-        this.state = {current : 0, score : 0};
+
+        this.state = {current : 0, score : 0, start : 1};
+    }
+
+
+    startTimer() {
+        this.setState({
+            isOn: true,
+            time: this.state.time,
+            start: Date.now() - this.state.time
+        })
+        this.timer = setInterval(() => this.setState({
+            time: Date.now() - this.state.start
+        }), 1);
+    }
+
+    stopTimer() {
+        this.setState({isOn: false})
+        clearInterval(this.timer)
+    }
+
+    resetTimer() {
+        this.setState({time: 0, isOn: false})
     }
 
     async loadData() {
@@ -66,40 +90,46 @@ class Quizzpage extends Component {
 
       componentDidMount(){
           this.loadData()
-      }
+          //this.handleChange();
+}
+    componentWillMount() {
+        clearInterval(this.timer);
+    }
 
-    reponse(e)  {
-        e.preventDefault();
-        const question = this.quizz.questions[this.state.current];
-        let choices = [];
-        let verification = false;
-        for(let i = 0; i < e.target.elements.length; i++) {
-            if(e.target.elements[i].checked)
-                choices.push(i);
-        }
-        // choices == question.solutions
-            if(choices.length == question.solutions.length){
-                let ok=true;
-                for(let i = 0; ok && i<choices.length; i++){
-                    if(choices[i]!==question.solutions[i]){
-                        ok=false;
+
+    reponse(e) {
+        if (e != null) {
+      ;
+            e.preventDefault();
+            const question = this.quizz.questions[this.state.current];
+            let choices = [];
+            let verification = false;
+            for (let i = 0; i < e.target.elements.length; i++) {
+                if (e.target.elements[i].checked)
+                    choices.push(i);
+            }
+            // choices == question.solutions
+            if (choices.length == question.solutions.length) {
+                let ok = true;
+                for (let i = 0; ok && i < choices.length; i++) {
+                    if (choices[i] !== question.solutions[i]) {
+                        ok = false;
                     }
                 }
-                if(ok){
+                if (ok) {
                     this.state.score = this.state.score + question.points;
                 }
             }
-
-
-
-
-
-        this.setState({current : this.state.current + 1 });
+        }
+        this.setState({current : this.state.current + 1 , start : 1});
 
 
     }
 
     render() {
+        let st = this.state.start;
+
+        console.log("current",this.state.current);
         if(this.state.current == this.quizz.questions.length) {
             let c = null;
 
@@ -122,6 +152,7 @@ class Quizzpage extends Component {
             <div id={"Quizzpage"}>
 
                 <h4>{this.quizz.name}</h4>
+                <Timer whenFinished={() =>  this.reponse(null)} start = {st} />
                 <div id="img">
                 <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
                 </div>
@@ -138,9 +169,12 @@ class Quizzpage extends Component {
                     <input id="button" type="submit"/>
                     </div>
                 </form>
+
+
             </div>
         );
     }
 }
+
 
 export default Quizzpage;
