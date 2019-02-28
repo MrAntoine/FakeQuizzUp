@@ -65,7 +65,7 @@
     text-align: center;
 }
 
-.grid-img img {
+.grid-img div img {
     width: auto;
     height: auto;
     max-height: 100%;
@@ -75,6 +75,12 @@
 .grid-img div {
     width: 100%;
     height: auto;
+    display: flex;
+}
+
+.grid-img input[type=checkbox] {
+   margin-top:auto;
+   margin-bottom:auto;
 }
 
 
@@ -90,4 +96,15 @@
     cursor: pointer;
     border-radius: 7px;
     /*margin: auto;*/
+}
+
+#titres {
+    display: flex;
+    justify-content: space-between;
+}
+
+#titres h3 {
+    padding-top: 5px;
+    margin-right: 10px;
+    padding-bottom: 5px;
 }

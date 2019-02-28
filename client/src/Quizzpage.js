@@ -141,29 +141,29 @@ class Quizzpage extends Component {
 
             return (
                 <div>C fini {this.state.score} sur {this.maxScore} {c}
-                    <Link to={"/"}>
-                    <button>Home</button>
-                    </Link>
+                    <Link id="Home_btn" to={'/'}>Home</Link>
                 </div>
             );
         }
         const question = this.quizz.questions[this.state.current];
         return (
             <div id={"Quizzpage"}>
+                <div id="titres">
+                    <h4>{this.quizz.name}</h4>
+                    <Timer whenFinished={() =>  this.reponse(null)} start = {st} />
+                </div>
 
-                <h4>{this.quizz.name}</h4>
-                <Timer whenFinished={() =>  this.reponse(null)} start = {st} />
                 <div id="img">
-                <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
+                    <img id="icon" src={HTTP_SERVER_PORT_PICTURES + this.quizz.icon}/>
                 </div>
                     <br/>
                 <div id="question">
-                <Question question = {question} />
+                    <Question question = {question} />
                 </div>
                 <br/>
                 <form id="responseForm" onSubmit={(e)=> this.reponse(e)}>
-                <TxtAnswers question={question} />
-                <ImgAnswers question={question}/>
+                    <TxtAnswers question={question} />
+                    <ImgAnswers question={question}/>
 
                     <div id="submit">
                     <input id="button" type="submit"/>
