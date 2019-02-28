@@ -41,7 +41,7 @@ class Timer extends React.Component {
     render() {
         if(this.props.st == 1)
             this.startTimer();
-        if (this.state.time > 1000) {
+        if (this.state.time > 30000) {
             this.props.whenFinished();
             this.stopTimer();
             this.resetTimer();

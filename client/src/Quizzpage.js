@@ -138,6 +138,8 @@ class Quizzpage extends Component {
 
             else if(this.state.score<this.maxScore/2)
                 c = "Peut mieux faire";
+            else
+                c = "Tu peux t'améliorer mais bien joué!";
 
             return (
                 <div>C fini {this.state.score} sur {this.maxScore} {c}
